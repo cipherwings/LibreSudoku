@@ -151,98 +151,11 @@ fun AboutScreen(
                 maxItemsInEachRow = 3
             ) {
                 AboutSectionBox(
-                    title = stringResource(R.string.about_github_project),
-                    subtitle = stringResource(R.string.about_github_source_code),
-                    icon = ImageVector.vectorResource(R.drawable.ic_github_24dp),
-                    onClick = { uriHandler.openUri(GITHUB_REPOSITORY) }
-                )
-                AboutSectionBox(
-                    title = stringResource(R.string.weblate),
-                    subtitle = stringResource(R.string.help_translate),
-                    icon = ImageVector.vectorResource(R.drawable.ic_weblate),
-                    onClick = { uriHandler.openUri(WEBLATE_ENGAGE) }
-                )
-                AboutSectionBox(
-                    title = stringResource(R.string.telegram),
-                    subtitle = stringResource(R.string.telegram_link),
-                    icon = Icons.Rounded.ExteraGram,
-                    onClick = { uriHandler.openUri(TELEGRAM_CHANNEL) }
-                )
-                AboutSectionBox(
                     title = stringResource(R.string.libraries_licenses),
                     subtitle = stringResource(R.string.libraries_licenses_title),
                     icon = Icons.Outlined.Info,
                     onClick = { navigator.navigate(AboutLibrariesScreenDestination()) }
                 )
-            }
-
-            Box(
-                modifier = Modifier
-                    .padding(horizontal = 12.dp)
-                    .clip(MaterialTheme.shapes.large)
-                    .background(MaterialTheme.colorScheme.surfaceContainer)
-                    .fillMaxWidth()
-            ) {
-                Column(
-                    modifier = Modifier
-                        .padding(vertical = 12.dp, horizontal = 8.dp)
-                ) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Spacer(modifier = Modifier.width(4.dp))
-                        Icon(
-                            imageVector = Icons.Rounded.Payments,
-                            contentDescription = null
-                        )
-                        Spacer(modifier = Modifier.width(8.dp))
-                        Text(
-                            text = stringResource(R.string.donation_title),
-                            style = MaterialTheme.typography.titleMedium
-                        )
-                    }
-                    Column(
-                        modifier = Modifier
-                            .padding(top = 4.dp)
-                            .clip(MaterialTheme.shapes.medium)
-                            .background(MaterialTheme.colorScheme.surfaceColorAtElevation(7.dp))
-                    ) {
-                        Text(
-                            text = stringResource(R.string.donation_description),
-                            style = MaterialTheme.typography.labelMedium,
-                            modifier = Modifier.padding(8.dp)
-                        )
-                    }
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Column(
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        DonationItem(
-                            title = stringResource(R.string.crypto_bitcoin),
-                            information = CRYPTO_BTC,
-                            icon = Icons.Filled.Bitcoin,
-                            onClick = { clipboardManager.setText(AnnotatedString(text = CRYPTO_BTC)) }
-                        )
-                        DonationItem(
-                            title = stringResource(R.string.crypto_ton),
-                            information = CRYPTO_TON,
-                            icon = Icons.Rounded.Ton,
-                            onClick = { clipboardManager.setText(AnnotatedString(text = CRYPTO_TON)) }
-                        )
-                        DonationItem(
-                            title = stringResource(R.string.crypto_usdt),
-                            information = CRYPTO_USDT_TRC20,
-                            icon = Icons.Rounded.Usdt,
-                            onClick = { clipboardManager.setText(AnnotatedString(text = CRYPTO_USDT_TRC20)) }
-                        )
-                        DonationItem(
-                            title = stringResource(R.string.card_mir),
-                            information = CARD_MIR,
-                            icon = Icons.Filled.Mir,
-                            onClick = { clipboardManager.setText(AnnotatedString(text = CARD_MIR.filter { it != ' ' })) }
-                        )
-                    }
-                }
             }
         }
     }
